@@ -1,10 +1,10 @@
-package fr.cnam.tp1and2.tests;
+package fr.cnam.nfp121.tp1and2;
 
-import fr.cnam.tp1and2.point.Point;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class PointTest {
     public static final double e = 1e-6;
