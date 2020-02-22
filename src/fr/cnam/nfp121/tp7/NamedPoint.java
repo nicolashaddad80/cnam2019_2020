@@ -1,7 +1,6 @@
 package fr.cnam.nfp121.tp7;
 
 
-
 public class NamedPoint extends Point {
 
     protected String name;

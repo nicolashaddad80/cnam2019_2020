@@ -2,7 +2,6 @@ package fr.cnam.nfp121.tp4;
 
 
 import fr.cnam.nfp121.tp1and2.Point;
-
 import org.junit.Before;
 import org.junit.Test;
 

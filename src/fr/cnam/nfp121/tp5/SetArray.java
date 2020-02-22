@@ -1,26 +1,27 @@
 package fr.cnam.nfp121.tp5;
+
 /**
- *  _______________________________________________________________________________________<br>
- *                         NFP121:TP5 <br>
- *  Nicolas HADDAD        <br>
- *  nicolas.haddad80@gmail.com  <br>
- *  _______________________________________________________________________________________<br>
- *   La classe SetArray inplemente l'interface Set qui represente des ensembles d'entiers <br>
- *   La modelisation d'un ensemble  est represente par un tableau contenant ses entiers   <br>
- *  ______________________________________________________________________________________<br>
+ * _______________________________________________________________________________________<br>
+ * NFP121:TP5 <br>
+ * Nicolas HADDAD        <br>
+ * nicolas.haddad80@gmail.com  <br>
+ * _______________________________________________________________________________________<br>
+ * La classe SetArray inplemente l'interface Set qui represente des ensembles d'entiers <br>
+ * La modelisation d'un ensemble  est represente par un tableau contenant ses entiers   <br>
+ * ______________________________________________________________________________________<br>
  */
 public class SetArray implements Set {
 
-    private int [] setList;
+    private int[] setList;
     private int nbElements;
 
     /**
      * Constructor of our set.
-     //* @param a_MaxSetSize initial max size of our set
+     * //* @param a_MaxSetSize initial max size of our set
      */
-    public SetArray(/*int a_MaxSetSize*/){
-       this.setList = new int[10];
-        this.nbElements=0;
+    public SetArray(/*int a_MaxSetSize*/) {
+        this.setList = new int[10];
+        this.nbElements = 0;
     }
 
     /**
@@ -28,7 +29,7 @@ public class SetArray implements Set {
      *
      * @return the number of elements in the set
      */
-    public int cardinal(){
+    public int cardinal() {
         return this.nbElements;
     }
 
@@ -37,8 +38,8 @@ public class SetArray implements Set {
      *
      * @return true if the set is empty
      */
-    public boolean isEmpty(){
-        return this.nbElements==0;
+    public boolean isEmpty() {
+        return this.nbElements == 0;
     }
 
     /**
@@ -47,16 +48,16 @@ public class SetArray implements Set {
      * @param e the concerned element
      * @return true if the element is in the set
      */
-    public boolean contains(int e){
-        boolean l_result=false;
-        int l_i=0;
-        while (l_i<this.nbElements && !l_result){
-            if(this.setList[l_i]==e){
-                l_result=true;
+    public boolean contains(int e) {
+        boolean l_result = false;
+        int l_i = 0;
+        while (l_i < this.nbElements && !l_result) {
+            if (this.setList[l_i] == e) {
+                l_result = true;
             }
-        l_i++;
+            l_i++;
         }
-    return l_result;
+        return l_result;
     }
 
     /**
@@ -65,16 +66,15 @@ public class SetArray implements Set {
      *
      * @param e the element to add
      */
-    public void add(int e){
-        if(!this.contains(e)) {
-            if(this.nbElements<this.setList.length ) {
+    public void add(int e) {
+        if (!this.contains(e)) {
+            if (this.nbElements < this.setList.length) {
                 this.setList[this.nbElements] = e;
-            }
-            else{
-                int [] l_setList=new int[this.setList.length+1];
+            } else {
+                int[] l_setList = new int[this.setList.length + 1];
                 System.arraycopy(this.setList, 0, l_setList, 0, this.nbElements);
-                l_setList[this.setList.length]=e;
-                this.setList=l_setList;
+                l_setList[this.setList.length] = e;
+                this.setList = l_setList;
             }
             this.nbElements++;
         }
@@ -86,12 +86,12 @@ public class SetArray implements Set {
      *
      * @param e the element to remove
      */
-    public void remove(int e){
-        if (this.contains(e)){
-            for (int l_i=0;l_i<this.nbElements;l_i++){
+    public void remove(int e) {
+        if (this.contains(e)) {
+            for (int l_i = 0; l_i < this.nbElements; l_i++) {
 
-                if(this.setList[l_i]==e){
-                    System.arraycopy(this.setList, l_i + 1, this.setList, l_i, this.nbElements - l_i-1);
+                if (this.setList[l_i] == e) {
+                    System.arraycopy(this.setList, l_i + 1, this.setList, l_i, this.nbElements - l_i - 1);
                 }
             }
             this.nbElements--;
@@ -104,15 +104,15 @@ public class SetArray implements Set {
      *
      * @return the smallest element of the set
      */
-    public int min(){
-        assert this.nbElements>0 : "the set is empty, cannot search a minimum";
-        int l_min=this.setList[0];
-        for (int l_i=1;l_i<this.nbElements;l_i++){
+    public int min() {
+        assert this.nbElements > 0 : "the set is empty, cannot search a minimum";
+        int l_min = this.setList[0];
+        for (int l_i = 1; l_i < this.nbElements; l_i++) {
 
-            if(this.setList[l_i]<l_min){
-                l_min=this.setList[l_i];
+            if (this.setList[l_i] < l_min) {
+                l_min = this.setList[l_i];
             }
         }
-    return l_min;
+        return l_min;
     }
 }
