@@ -1,5 +1,6 @@
 package fr.cnam.nfp121.tp5;
 
+
 public class PrimesPrinter {
 
     public static void main(String[] args) {
