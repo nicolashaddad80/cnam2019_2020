@@ -1,9 +1,15 @@
 package fr.cnam.nfp121.tp5;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+
 public class SetTest {
 
     private static String setClassName;
-
+  /*
     private Set set;
     private int[] tab0;
     private int[] tab1;
@@ -21,7 +27,7 @@ public class SetTest {
         org.junit.runner.JUnitCore.main("fr.cnam.nfp121.tp5.SetTest");
         junit.textui.TestRunner.run(new junit.framework.TestSuite(SetTest.class));
     }
- /*
+
     private static void addAll(Set ens, int... elements) {
         for (int n : elements) {
             ens.add(n);
@@ -236,5 +242,5 @@ public class SetTest {
         assertEquals(2, this.set.cardinal());
         assertTrue(this.set.contains(1));
     }
-*/
+    */
 }
