@@ -1,6 +1,5 @@
 package fr.cnam.nfp121.tp6;
 
-import fr.cnam.tp6.SavingsAccount;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

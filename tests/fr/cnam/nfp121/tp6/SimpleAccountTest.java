@@ -1,8 +1,6 @@
 package fr.cnam.nfp121.tp6;
 
-import fr.cnam.tp6.Gender;
-import fr.cnam.tp6.Person;
-import fr.cnam.tp6.SimpleAccount;
+
 import org.junit.Before;
 import org.junit.Test;
 

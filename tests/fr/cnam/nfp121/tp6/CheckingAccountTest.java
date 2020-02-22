@@ -1,6 +1,5 @@
 package fr.cnam.nfp121.tp6;
 
-import fr.cnam.tp6.CheckingAccount;
 import org.junit.Before;
 import org.junit.Test;
 
