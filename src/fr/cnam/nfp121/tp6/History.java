@@ -1,4 +1,4 @@
-package tp6;
+package fr.cnam.nfp121.tp6;
 
 /**
  * ____________________________________________________________________________________________<br
@@ -41,8 +41,8 @@ public class History {
      *
      * @return : l'Historique de tous les credits
      */
-    public fr.cnam.tp6.History getCredit() {
-        fr.cnam.tp6.History l_History = new fr.cnam.tp6.History();
+    public History getCredit() {
+        History l_History = new History();
         for (int i = 0; i < this.getNbOperation(); i++) {
             if (this.getOperation(i + 1) >= 0) {
                 l_History.addOperation(this.getOperation(i + 1));
@@ -56,8 +56,8 @@ public class History {
      *
      * @return : l'Historique de tous les debits
      */
-    public fr.cnam.tp6.History getDebit() {
-        fr.cnam.tp6.History l_History = new fr.cnam.tp6.History();
+    public History getDebit() {
+        History l_History = new History();
         for (int i = 0; i < this.getNbOperation(); i++) {
             if (this.getOperation(i + 1) <= 0) {
                 l_History.addOperation(this.getOperation(i + 1));
