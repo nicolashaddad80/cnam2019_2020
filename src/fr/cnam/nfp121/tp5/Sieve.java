@@ -20,7 +20,7 @@ class Sieve {
             if (nb > 0) {
                 System.out.print(", ");
             }
-            if (nb %37 ==0) {
+            if (nb % 37 == 0) {
                 System.out.print("\n");
             }
             System.out.print(premier);
