@@ -1,7 +1,6 @@
 package fr.cnam.nfp121.tp9.editor.editorcommands;
 
 import fr.cnam.nfp121.tp9.editor.HistoryEditor;
-import fr.cnam.nfp121.tp9.editor.specification.HisEditor;
 
 public class UndoCommand extends EditorCommand {
 

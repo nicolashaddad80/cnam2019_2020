@@ -3,8 +3,6 @@ package fr.cnam.nfp121.tp12.segment;
 import fr.cnam.nfp121.tp12.mypatterns.MyObserver;
 import fr.cnam.nfp121.tp12.point.PointImpl;
 import fr.cnam.nfp121.tp12.point.PointObservable;
-import fr.cnam.nfp121.tp12.segment.SegmentOptimized;
-import fr.cnam.nfp121.tp12.segment.Segment;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -15,7 +15,7 @@ public class UserIntReader {
         return Integer.parseInt(sNumber);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         int n = 0;
         String message1 = "Entrez un Nombre Entier:";
