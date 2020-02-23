@@ -1,11 +1,5 @@
 package fr.cnam.nfp121.tp5;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
-
-
 public class SetTest {
 
     private static String setClassName;

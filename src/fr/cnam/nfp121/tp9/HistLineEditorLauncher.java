@@ -1,7 +1,7 @@
 package fr.cnam.nfp121.tp9;
 
-import fr.cnam.nfp121.tp9.editor.HistoryEditor;
 import fr.cnam.nfp121.tp9.command.specification.Cancelable;
+import fr.cnam.nfp121.tp9.editor.HistoryEditor;
 import fr.cnam.nfp121.tp9.editor.specification.HisEditor;
 import fr.cnam.nfp121.tp9.line.ClonableLineTab;
 import fr.cnam.nfp121.tp9.line.linecommands.cancelinecomm.*;
