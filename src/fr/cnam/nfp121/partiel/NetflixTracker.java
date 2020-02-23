@@ -72,7 +72,7 @@ public class NetflixTracker extends JPanel {
                     int column = 0;
                     String selectedSerireName = table.getModel().getValueAt(selectedrow, column).toString();
                     catalog.getSeriesForName(selectedSerireName).watch(3.2);
-                }catch (ArrayIndexOutOfBoundsException ex){
+                } catch (ArrayIndexOutOfBoundsException ex) {
                     showMessageDialog(null, "Veuillez Selectionner une serie dans le tableau");
                 }
             }
@@ -93,7 +93,7 @@ public class NetflixTracker extends JPanel {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                catalog.newSeries(nameField.getText(),Integer.parseInt((epCountField.getText())));
+                catalog.newSeries(nameField.getText(), Integer.parseInt((epCountField.getText())));
             }
         });
         newSeriesPane.add(nameLabel);
@@ -114,13 +114,7 @@ public class NetflixTracker extends JPanel {
         this.add(bottomHalf, BorderLayout.PAGE_END);
 
 
-
-
-
     }
-
-
-
 
 
     private static void createAndShowGUI() {

@@ -20,8 +20,8 @@ public interface MyObservable {
 
 
     /**
-     *  Checks the internal flag to see if the observable has changed state and notifies all observers.
-     *  Passes the object specified in the parameter list to the notify() method of the observer.
+     * Checks the internal flag to see if the observable has changed state and notifies all observers.
+     * Passes the object specified in the parameter list to the notify() method of the observer.
      */
 
     void notifyObservers();

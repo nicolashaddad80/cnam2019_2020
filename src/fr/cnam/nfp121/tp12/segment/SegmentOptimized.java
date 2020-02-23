@@ -1,6 +1,6 @@
 package fr.cnam.nfp121.tp12.segment;
-import fr.cnam.nfp121.tp12.point.PointObservable;
 
+import fr.cnam.nfp121.tp12.point.PointObservable;
 
 
 public class SegmentOptimized implements Segment {
@@ -59,7 +59,7 @@ public class SegmentOptimized implements Segment {
 
     @Override
     public void update(Object observable) {
-        if(this.p1==observable || this.p2==observable)
-        this.updateLength();
+        if (this.p1 == observable || this.p2 == observable)
+            this.updateLength();
     }
 }

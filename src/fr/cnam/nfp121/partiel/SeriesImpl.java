@@ -5,14 +5,14 @@ public class SeriesImpl implements Series {
 
     private Episode[] muyEpisodes;
 
-    private int progression=0;
-    private double score=0;
+    private int progression = 0;
+    private double score = 0;
 
 
-    public SeriesImpl(String name, int  epCount) {
+    public SeriesImpl(String name, int epCount) {
 
         this.muyEpisodes = new Episode[epCount];
-        this.seriesName=name;
+        this.seriesName = name;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class SeriesImpl implements Series {
         return this.progression;
     }
 
-    public void incrementEpisode(){
+    public void incrementEpisode() {
         this.progression++;
     }
 
@@ -42,7 +42,7 @@ public class SeriesImpl implements Series {
     @Override
     public void watch(double score) {
         this.progression++;
-        this.score=score;
+        this.score = score;
 
     }
 

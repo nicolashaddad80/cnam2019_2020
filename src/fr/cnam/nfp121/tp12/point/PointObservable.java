@@ -4,13 +4,12 @@ package fr.cnam.nfp121.tp12.point;
 import fr.cnam.nfp121.tp12.mypatterns.MyObservable;
 import fr.cnam.nfp121.tp12.mypatterns.MyObserver;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PointObservable extends PointImpl implements MyObservable {
 
-    private  List<MyObserver> observers;
+    private List<MyObserver> observers;
 
     public PointObservable(Point point) {
         super(point.getX(), point.getY());

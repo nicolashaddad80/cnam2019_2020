@@ -67,8 +67,8 @@ public class CircleOptimized implements Circle {
 
     @Override
     public void update(Object observable) {
-        if(observable==this.centerPoint) this.translateCenter();
-        if(observable==this.circonfPoint) this.updateRadius();
+        if (observable == this.centerPoint) this.translateCenter();
+        if (observable == this.circonfPoint) this.updateRadius();
     }
 
 }
