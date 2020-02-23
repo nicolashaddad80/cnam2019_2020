@@ -1,7 +1,5 @@
 package fr.cnam.nfp121.tp12.circle;
 
-import fr.cnam.nfp121.tp12.circle.CircleOptimized;
-import fr.cnam.nfp121.tp12.circle.Circle;
 import fr.cnam.nfp121.tp12.mypatterns.MyObserver;
 import fr.cnam.nfp121.tp12.point.PointImpl;
 import fr.cnam.nfp121.tp12.point.PointObservable;
