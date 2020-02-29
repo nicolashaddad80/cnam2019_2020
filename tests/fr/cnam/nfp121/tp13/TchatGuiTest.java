@@ -12,7 +12,7 @@ public class TchatGuiTest {
         ObservableSalon myModel1 = new ObservableSalon();
         SwingUtilities.invokeLater(() -> new TchatGui(myModel1).start());
         /*Launching Additional Views of same Model counter for debug purpose if DEBUG_ON seated to true*/
-        if (DebugOnOFF.DEBUG_ON) for (int i = 0; i < DebugOnOFF.NB_DEBUG_PARALLEL_ADDITIONAL_VIEWS; i++)
+        if (fr.cnam.cour11.DebugOnOFF.DEBUG_ON) for (int i = 0; i < fr.cnam.cour11.DebugOnOFF.NB_DEBUG_PARALLEL_ADDITIONAL_VIEWS; i++)
             SwingUtilities.invokeLater(() -> new TchatGui(myModel1).start());
     }
 }
