@@ -24,7 +24,7 @@ public class Tp13JPanelController extends JPanel {
         this.myModel = a_myModel;
         this.userLabel = new JLabel("User " + (Tp13JPanelController.userNumber++) + ":");
         this.userMessageField = new JTextField(null);
-        this.userMessageField.setColumns(35);
+        this.userMessageField.setColumns(30);
         this.okButton = new JButton("ok");
         okButton.addActionListener(this::updateMode);
         /*if user wants to send message by just pressing Enter key*/
