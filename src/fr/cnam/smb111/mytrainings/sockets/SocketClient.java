@@ -9,9 +9,9 @@ public class SocketClient {
         try {
             Socket s = new Socket("nicolas-haddad.hd.free.fr", 2000);
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-            for(int messageNum=0;messageNum<100;messageNum++) {
+            for(int messageNum=0;messageNum<100; messageNum++) {
                 StringBuilder message = new StringBuilder();
-                message.append("Client01Message").append(messageNum);
+                message.append("Client01 Message: ").append(messageNum);
                 dout.writeUTF(message.toString());
                 dout.flush();
             }
