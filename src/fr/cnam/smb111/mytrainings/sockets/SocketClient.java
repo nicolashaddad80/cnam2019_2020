@@ -7,11 +7,11 @@ public class SocketClient {
     public static void main(String[] args) {
 
         try {
-            Socket s = new Socket("localhost", 6666);
+            Socket s = new Socket("nicolas-haddad.hd.free.fr", 2000);
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
             for(int messageNum=0;messageNum<100;messageNum++) {
                 StringBuilder message = new StringBuilder();
-                message.append("message num:").append(messageNum);
+                message.append("Client01Message").append(messageNum);
                 dout.writeUTF(message.toString());
                 dout.flush();
             }
