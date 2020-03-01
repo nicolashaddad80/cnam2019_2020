@@ -11,11 +11,11 @@ public class SocketServer {
             ServerSocket ss=new ServerSocket(2000);
             Socket s=ss.accept();//establishes connection
             DataInputStream dis=new DataInputStream(s.getInputStream());
-            for(int i=0;i<100;i++) {
+            /*for(int i=0;i<100;i++) */ while (true){
                 String str = (String) dis.readUTF();
                 System.out.println("message= " + str);
             }
-            ss.close();
+            /*ss.close();*/
         }catch(Exception e){System.out.println(e);}
     }
 }
