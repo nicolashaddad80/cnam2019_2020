@@ -7,7 +7,7 @@ public class SocketClient {
     public static void main(String[] args) {
 
         try {
-            Socket s = new Socket("localhost", 6666);
+            Socket s = new Socket("localhost",2000);
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
             for(int messageNum=0;messageNum<100;messageNum++) {
                 StringBuilder message = new StringBuilder();

@@ -8,7 +8,7 @@ public class SocketServer {
 
     public static void main(String[] args){
         try{
-            ServerSocket ss=new ServerSocket(6666);
+            ServerSocket ss=new ServerSocket(2000);
             Socket s=ss.accept();//establishes connection
             DataInputStream dis=new DataInputStream(s.getInputStream());
             for(int i=0;i<100;i++) {
