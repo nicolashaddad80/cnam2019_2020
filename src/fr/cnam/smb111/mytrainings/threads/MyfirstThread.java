@@ -1,5 +1,6 @@
 package fr.cnam.smb111.mytrainings.threads;
 class MyfirstThread extends Thread{
+    @Override
     public void run(){
         System.out.println("thread is running...");
     }
