@@ -44,7 +44,7 @@ public abstract class AbsClient implements Runnable {
     protected void sendRequest() {
         DatagramPacket msg = null;
         try {
-            String message = ""+this.clientId + ClientParameters.MARSHALLING_DELIMETER + this.clientIpAddress + ClientParameters.MARSHALLING_DELIMETER  + this.command;
+            String message = "" + this.clientId + ClientParameters.MARSHALLING_DELIMETER + this.clientIpAddress + ClientParameters.MARSHALLING_DELIMETER + this.command;
             byte[] tampon = message.getBytes();
             msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(null), ServerParameters.SERVER_PORT_NUMBER);
             // Sending Packet

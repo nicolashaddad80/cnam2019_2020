@@ -1,8 +1,6 @@
 package fr.cnam.smb111.cours02.tp2;
 
 
-import fr.cnam.smb111.cours02.tp1.modenonconnecte.Serveur;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -44,17 +42,17 @@ public class Server implements Runnable {
         while (true) {
             // Reading Client Request
             try {
-                if(Debug.SERVER_TRACE_ON) System.out.println("Waiting for Client Request...");
+                if (Debug.SERVER_TRACE_ON) System.out.println("Waiting for Client Request...");
                 datagramSocket.receive(receiveRequestPacket);
                 String clientRequestPacket = new String(receiveRequestPacket.getData(), 0, receiveRequestPacket.getLength());
                 if (Debug.SERVER_TRACE_ON) System.out.println("Received Request: " + clientRequestPacket);
 
-               //Unmarchaling
-              String[] packetDecoded = clientRequestPacket.split(ClientParameters.MARSHALLING_DELIMETER );
-                if(packetDecoded.length!=3) throw new ClientRequestFormatError();
+                //Unmarchaling
+                String[] packetDecoded = clientRequestPacket.split(ClientParameters.MARSHALLING_DELIMETER);
+                if (packetDecoded.length != 3) throw new ClientRequestFormatError();
 
                 //Create Thread to serve client Request
-                new CounterCommandsThread(packetDecoded[0].trim(),packetDecoded[1].trim(),packetDecoded[2].trim(),this.datagramSocket).start();
+                new CounterCommandsThread(packetDecoded[0].trim(), packetDecoded[1].trim(), packetDecoded[2].trim(), this.datagramSocket).start();
 
             } catch (IOException e) {
                 System.err.println("Erreur lors de la reception du message : " + e);
