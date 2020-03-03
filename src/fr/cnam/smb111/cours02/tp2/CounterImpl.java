@@ -5,20 +5,25 @@ public class CounterImpl implements Counter {
     private int count = 0;
 
     @Override
-    public synchronized void increment() {
-
-        this.count++;
+    public  void increment() {
+        synchronized(this) {
+            this.count++;
+        }
 
     }
 
     @Override
-    public synchronized void decrement() {
-        this.count--;
-        if (Debug.COUNTER_DEBUG_ON) System.out.println("New Counter Value is: " + this.count);
+    public  void decrement() {
+        synchronized(this) {
+            this.count--;
+            if (Debug.COUNTER_DEBUG_ON) System.out.println("New Counter Value is: " + this.count);
+        }
     }
 
     @Override
-    public synchronized int getValue() {
-        return this.count;
+    public  int getValue() {
+        synchronized (this) {
+            return this.count;
+        }
     }
 }
