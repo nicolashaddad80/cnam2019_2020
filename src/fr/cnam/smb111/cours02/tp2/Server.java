@@ -49,10 +49,10 @@ public class Server implements Runnable {
 
                 //Unmarchaling
                 String[] packetDecoded = clientRequestPacket.split(ClientParameters.MARSHALLING_DELIMETER);
-                if (packetDecoded.length != 3) throw new ClientRequestFormatError();
+                if (packetDecoded.length != 2) throw new ClientRequestFormatError();
 
                 //Create Thread to serve client Request
-                new CounterCommandsThread(packetDecoded[0].trim(), packetDecoded[1].trim(), packetDecoded[2].trim(), this.datagramSocket).start();
+                new CounterCommandsThread(packetDecoded[0].trim(), packetDecoded[1].trim(), this.datagramSocket).start();
 
             } catch (IOException e) {
                 System.err.println("Erreur lors de la reception du message : " + e);

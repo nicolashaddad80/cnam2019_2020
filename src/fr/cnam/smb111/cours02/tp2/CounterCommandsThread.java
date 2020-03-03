@@ -10,16 +10,13 @@ import java.net.UnknownHostException;
 
 public class CounterCommandsThread extends Thread {
     private String command = null;
-    private String clientId;
     private String clientIpAddress;
-
     private DatagramSocket serverSocket;
 
 
-    public CounterCommandsThread(String clientId, String clientIpAdress, String command, DatagramSocket serverSocket) {
+    public CounterCommandsThread(String clientIpAdress, String command, DatagramSocket serverSocket) {
         this.command = command;
         this.serverSocket = serverSocket;
-        this.clientId = clientId;
         this.clientIpAddress = clientIpAdress;
 
     }
@@ -56,7 +53,7 @@ public class CounterCommandsThread extends Thread {
         if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Sending Server Counter Value to Client");
         DatagramPacket msg = null;
         try {
-            String message = this.clientId + Server.getCounter().getValue();
+            String message = ""+Server.getCounter().getValue();
             byte[] tampon = message.getBytes();
             msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(this.clientIpAddress), Server.getServerPort());
             // Sending Packet

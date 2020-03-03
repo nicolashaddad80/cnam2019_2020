@@ -5,22 +5,20 @@ import java.net.*;
 
 public abstract class AbsClient implements Runnable {
 
-    private static int numClientCounter = 0;
+
     private String clientIpAddress = null;
     private String command;
-    private int clientId;
     private DatagramSocket clientSocket = null;
 
 
     public AbsClient(String command) {
-        this.clientId = numClientCounter++;
+
         this.command = command;
 
         try {
             this.clientIpAddress = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
             e.printStackTrace();
-
         }
 
         // Creating Client Socket
@@ -44,7 +42,7 @@ public abstract class AbsClient implements Runnable {
     protected void sendRequest() {
         DatagramPacket msg = null;
         try {
-            String message = "" + this.clientId + ClientParameters.MARSHALLING_DELIMETER + this.clientIpAddress + ClientParameters.MARSHALLING_DELIMETER + this.command;
+            String message = "" + this.clientIpAddress + ClientParameters.MARSHALLING_DELIMETER + this.command;
             byte[] tampon = message.getBytes();
             msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(ServerParameters.SERVER_ADDRESS), ServerParameters.SERVER_PORT_NUMBER);
             // Sending Packet
@@ -72,7 +70,6 @@ public abstract class AbsClient implements Runnable {
         try {
             this.clientSocket.receive(msg);
             String texte = new String(msg.getData(), 0, msg.getLength());
-            //Unmarchall Packet
             System.out.println("Counter Value" + texte);
         } catch(IOException e) {
             System.err.println("Erreur lors de la reception du message : " + e);
@@ -81,14 +78,13 @@ public abstract class AbsClient implements Runnable {
 
         // Closing socket
         this.clientSocket.close();
-        System.out.println("Need now to read Value From a data packet");
     }
 
 
     @Override
     public String toString() {
-        return "numClient=" + clientId +
-                "\tipAddress=" + clientIpAddress +
+        return
+                "ipAddress=" + clientIpAddress +
                 "\tcommand=" + command
                 ;
     }
