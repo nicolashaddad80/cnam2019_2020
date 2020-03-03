@@ -26,27 +26,27 @@ public class CounterCommandsThread extends Thread {
 
     @Override
     public void run() {
+        synchronized (Server.getCounter()) {
+            if (Debug.SERVER_THREAD_DEBUG_ON) System.out.println(this.command);
+            switch (this.command) {
+                case ClientParameters.DOWN:
+                    Server.getCounter().decrement();
+                    if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Decrementing(--) Server Counter");
+                    break;
+                case ClientParameters.UP:
+                    Server.getCounter().increment();
+                    if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Incremating (++) Server Counter");
+                    break;
+                case ClientParameters.GET:
+                    this.sendServerCounterValue();
 
-        if (Debug.SERVER_THREAD_DEBUG_ON) System.out.println(this.command);
-        switch (this.command) {
-            case ClientParameters.DOWN:
-                Server.getCounter().decrement();
-                if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Decrementing(--) Server Counter");
-                break;
-            case ClientParameters.UP:
-                Server.getCounter().increment();
-                if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Incremating (++) Server Counter");
-                break;
-            case ClientParameters.GET:
-                this.sendServerCounterValue();
-
-            default:
-                System.err.println("Uknown Command");
-                System.exit(-1);
-                break;
+                default:
+                    System.err.println("Uknown Command");
+                    System.exit(-1);
+                    break;
+            }
+            if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Server Thread Job Done");
         }
-        if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Server Thread Job Done");
-
     }
 
     private void sendServerCounterValue() {
