@@ -55,7 +55,7 @@ public class CounterCommandsThread extends Thread {
         try {
             String message = ""+Server.getCounter().getValue();
             byte[] tampon = message.getBytes();
-            msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(this.clientIpAddress), Server.getServerPort());
+            msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(this.clientIpAddress), ClientParameters.CLIENT_PORT);
             // Sending Packet
             try {
                 this.serverSocket.send(msg);

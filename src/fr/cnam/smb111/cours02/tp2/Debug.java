@@ -7,8 +7,8 @@ public class Debug {
     public final static boolean CLIENT_DEBUG_ON = false;
     public final static boolean CLIENT_TRACE_ON = false;
     //Server Thread Debug & trace
-    public final static boolean SERVER_THREAD_DEBUG_ON = true;
-    public final static boolean SERVER_THREAD_TRACE_ON = true;
+    public final static boolean SERVER_THREAD_DEBUG_ON = false;
+    public final static boolean SERVER_THREAD_TRACE_ON = false;
 
     //Server Debug & trace
     public final static boolean SERVER_DEBUG_ON = false;

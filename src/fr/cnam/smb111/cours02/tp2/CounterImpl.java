@@ -1,6 +1,5 @@
 package fr.cnam.smb111.cours02.tp2;
 
-
 public class CounterImpl implements Counter {
     private int count = 0;
 
@@ -14,6 +13,7 @@ public class CounterImpl implements Counter {
     public void decrement() {
         this.count--;
         if (Debug.COUNTER_DEBUG_ON) System.out.println("New Counter Value is: " + this.count);
+
     }
 
     @Override
