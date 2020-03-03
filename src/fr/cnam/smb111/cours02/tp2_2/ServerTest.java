@@ -1,11 +1,11 @@
-package fr.cnam.smb111.cours02.tp2;
+package fr.cnam.smb111.cours02.tp2_2;
 
 public class ServerTest {
 
     public static void main(String[] args) {
         if (Debug.SERVER_TRACE_ON) System.out.println("Creating Server Daemon");
         Thread serverDaemon = new Thread(new Server(ServerParameters.SERVER_PORT_NUMBER));
-       // serverDaemon.setDaemon(true);
+        // serverDaemon.setDaemon(true);
         if (Debug.SERVER_TRACE_ON) System.out.println("Starting Server Daemon......");
         serverDaemon.start();
         if (Debug.SERVER_TRACE_ON) System.out.println("Server Daemon started");

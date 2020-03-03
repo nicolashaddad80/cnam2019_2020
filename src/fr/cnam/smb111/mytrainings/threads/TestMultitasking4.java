@@ -1,14 +1,14 @@
 package fr.cnam.smb111.mytrainings.threads;
 
-class TestMultitasking4{
-    public static void main(String args[]){
-        Thread t1=new Thread(){
-            public void run(){
+class TestMultitasking4 {
+    public static void main(String[] args) {
+        Thread t1 = new Thread() {
+            public void run() {
                 System.out.println("task one");
             }
         };
-        Thread t2=new Thread(){
-            public void run(){
+        Thread t2 = new Thread() {
+            public void run() {
                 System.out.println("task two");
             }
         };

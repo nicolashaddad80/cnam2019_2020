@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.tp2;
+package fr.cnam.smb111.cours02.tp2_2;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -36,14 +36,15 @@ public class ClientTest {
         lock.readLock().unlock();
 
         lock.writeLock().lock();
-        for (int i=0;i<100;i++)
+        for (int i = 0; i < 100; i++)
             executor.submit(new Thread(new Client(ClientParameters.UP)));
         lock.writeLock().unlock();
 
         lock.readLock().lock();
-        for (int i=0;i<5;i++)
-                executor.submit(new Thread(new Client(ClientParameters.GET)));
+        for (int i = 0; i < 5; i++)
+            executor.submit(new Thread(new Client(ClientParameters.GET)));
         lock.readLock().unlock();
+
 
     }
 

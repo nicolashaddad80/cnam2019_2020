@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.tp2;
+package fr.cnam.smb111.cours02.tp2_2;
 
 import java.io.IOException;
 import java.net.*;
@@ -6,11 +6,9 @@ import java.net.*;
 public abstract class AbsClient implements Runnable {
 
 
-    private String clientIpAddress = null;
-    private String command;
     private static DatagramSocket clientSocket = null;
-    static
-    {
+
+    static {
         // Creating Client Socket
         try {
             clientSocket = new DatagramSocket(ClientParameters.CLIENT_PORT);
@@ -19,6 +17,9 @@ public abstract class AbsClient implements Runnable {
             System.exit(-1);
         }
     }
+
+    private String clientIpAddress = null;
+    private String command;
 
     public AbsClient(String command) {
 
@@ -43,7 +44,7 @@ public abstract class AbsClient implements Runnable {
     protected void sendRequest() {
         DatagramPacket msg = null;
         try {
-            byte[] tampon =null;
+            byte[] tampon = null;
             String message = "" + this.clientIpAddress + ClientParameters.MARSHALLING_DELIMETER + this.command;
             tampon = message.getBytes();
             msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(ServerParameters.SERVER_ADDRESS), ServerParameters.SERVER_PORT_NUMBER);
@@ -73,7 +74,7 @@ public abstract class AbsClient implements Runnable {
             AbsClient.clientSocket.receive(msg);
             String texte = new String(msg.getData(), 0, msg.getLength());
             System.out.println("Counter Value: " + texte);
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.err.println("Erreur lors de la reception du message : " + e);
             System.exit(-1);
         }
@@ -84,7 +85,7 @@ public abstract class AbsClient implements Runnable {
     public String toString() {
         return
                 "ipAddress=" + clientIpAddress +
-                "\tcommand=" + command
+                        "\tcommand=" + command
                 ;
     }
 }

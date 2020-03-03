@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.tp2;
+package fr.cnam.smb111.cours02.tp2_2;
 
 
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class CounterCommandsThread extends Thread {
         if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Sending Server Counter Value to Client");
         DatagramPacket msg = null;
         try {
-            String message = ""+Server.getCounter().getValue();
+            String message = "" + Server.getCounter().getValue();
             byte[] tampon = message.getBytes();
             msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(this.clientIpAddress), ClientParameters.CLIENT_PORT);
             // Sending Packet
