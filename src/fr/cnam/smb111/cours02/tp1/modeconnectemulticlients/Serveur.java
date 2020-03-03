@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.modeconnectemulticlients;
+package fr.cnam.smb111.cours02.tp1.modeconnectemulticlients;
 
 import java.io.IOException;
 import java.net.ServerSocket;

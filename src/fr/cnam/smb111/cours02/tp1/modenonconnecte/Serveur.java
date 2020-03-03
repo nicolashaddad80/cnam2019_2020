@@ -1,12 +1,10 @@
-package fr.cnam.smb111.cours02.modenonconnecte;
+package fr.cnam.smb111.cours02.tp1.modenonconnecte;
 
 import java.io.IOException;
 
 import java.net.DatagramSocket;
 import java.net.DatagramPacket;
 import java.net.SocketException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 /**
  * Classe correspondant à un serveur en mode non connecté.

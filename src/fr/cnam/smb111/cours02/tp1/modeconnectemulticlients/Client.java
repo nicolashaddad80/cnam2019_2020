@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.modeconnecte;
+package fr.cnam.smb111.cours02.tp1.modeconnectemulticlients;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -7,68 +7,53 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
 
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.concurrent.TimeUnit;
 
 /**
- * Classe correspondant à un serveur en mode connecte.
+ * Classe correspondant � un client en mode connect�.
  * Le client envoie la chaine 'Bonjour' et lit une reponse de la part du serveur.
  * Le client envoie ensuite la chaine 'Au revoir' et lit une reponse.
  * Le numero de port du serveur est specifie dans la classe Serveur.
  * @author Cyril Rabat
  */
-public class Serveur {
-
-    // Le numéro de port est fixe ici arbitrairement a 5001
-    public static final int portEcoute = 5001;
+public class Client {
 
     public static void main(String[] args) {
-        // Création de la socket serveur
-        ServerSocket socketServeur = null;
-        try {	
-            socketServeur = new ServerSocket(Serveur.portEcoute);
+        // Cr�ation de la socket
+        Socket socket = null;
+        try {
+            socket = new Socket("localhost", Serveur.portEcoute);
+        } catch(UnknownHostException e) {
+            System.err.println("Erreur sur l'h�te : " + e);
+            System.exit(-1);
         } catch(IOException e) {
             System.err.println("Creation de la socket impossible : " + e);
             System.exit(-1);
         }
-
-        // Attente d'une connexion d'un client
-        Socket socketClient = null;
-        try {
-            socketClient = socketServeur.accept();
-        } catch(IOException e) {
-            System.err.println("Erreur lors de l'attente d'une connexion : " + e);
-            System.exit(-1);
-        }
-
+        
         // Association d'un flux d'entree et de sortie
         BufferedReader input = null;
         PrintWriter output = null;
         try {
-            input = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
-            output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketClient.getOutputStream())), true);
+            input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
         } catch(IOException e) {
             System.err.println("Association des flux impossible : " + e);
             System.exit(-1);
         }
-
-        // Lecture de 'Bonjour'
-        String message = "";
         try {
-            message = input.readLine();
-        } catch(IOException e) {
-            System.err.println("Erreur lors de la lecture : " + e);
-            System.exit(-1);
+            TimeUnit.SECONDS.sleep(30);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        System.out.println("Lu: " + message);
-
         // Envoi de 'Bonjour'
-        message = "Bonjour";
+        String message = "Bonjour";
         System.out.println("Envoi: " + message);
         output.println(message);
 
-        // Lecture de 'Au revoir'
+        // Lecture de 'Bonjour'
         try {
             message = input.readLine();
         } catch(IOException e) {
@@ -81,15 +66,23 @@ public class Serveur {
         message = "Au revoir";
         System.out.println("Envoi: " + message);
         output.println(message);
-        
-        // Fermeture des flux et des sockets
+
+        // Lecture de 'Au revoir'
+        try {
+            message = input.readLine();
+        } catch(IOException e) {
+            System.err.println("Erreur lors de la lecture : " + e);
+            System.exit(-1);
+        }
+        System.out.println("Lu: " + message);
+
+        // Fermeture des flux et de la socket
         try {
             input.close();
             output.close();
-            socketClient.close();
-            socketServeur.close();
+            socket.close();
         } catch(IOException e) {
-            System.err.println("Erreur lors de la fermeture des flux et des sockets : " + e);
+            System.err.println("Erreur lors de la fermeture des flux et de la socket : " + e);
             System.exit(-1);
         }
     }

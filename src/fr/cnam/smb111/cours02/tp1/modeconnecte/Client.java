@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.modeconnecte;
+package fr.cnam.smb111.cours02.tp1.modeconnecte;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;

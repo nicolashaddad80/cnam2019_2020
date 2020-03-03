@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.modenonconnecte;
+package fr.cnam.smb111.cours02.tp1.modenonconnecte;
 
 import java.io.IOException;
 
