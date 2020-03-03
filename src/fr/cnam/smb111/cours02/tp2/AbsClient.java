@@ -64,10 +64,24 @@ public abstract class AbsClient implements Runnable {
     protected void receiveValue() {
 
         //Read Packet
-        System.out.println("Need now to read Value From a data packet");
-        //Unmarchall Packet
-        //Filter Packet and Diplay Result if this not destinated to us re inject it to socket
+        // Creating reception buffer
+        byte[] receiveBuffer = new byte[1024];
+        DatagramPacket msg = new DatagramPacket(receiveBuffer, receiveBuffer.length);
 
+        // Lecture du message du client
+        try {
+            this.clientSocket.receive(msg);
+            String texte = new String(msg.getData(), 0, msg.getLength());
+            //Unmarchall Packet
+            System.out.println("Counter Value" + texte);
+        } catch(IOException e) {
+            System.err.println("Erreur lors de la reception du message : " + e);
+            System.exit(-1);
+        }
+
+        // Closing socket
+        this.clientSocket.close();
+        System.out.println("Need now to read Value From a data packet");
     }
 
 

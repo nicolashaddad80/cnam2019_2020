@@ -38,6 +38,7 @@ public class CounterCommandsThread extends Thread {
                 if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Incremating (++) Server Counter");
                 break;
             case ClientParameters.GET:
+                if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("GEt Counter Value");
                 this.sendServerCounterValue();
 
             default:
