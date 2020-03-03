@@ -40,6 +40,7 @@ public class CounterCommandsThread extends Thread {
             case ClientParameters.GET:
                 if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("GEt Counter Value");
                 this.sendServerCounterValue();
+                break;
 
             default:
                 System.err.println("Uknown Command");
