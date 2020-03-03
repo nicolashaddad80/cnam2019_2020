@@ -16,6 +16,6 @@ public class Debug {
 
 
     //Counter Debug & trace
-    public final static boolean COUNTER_DEBUG_ON = true;
-    public final static boolean COUNTER_TRACE_ON = true;
+    public final static boolean COUNTER_DEBUG_ON = false;
+    public final static boolean COUNTER_TRACE_ON = false;
 }
