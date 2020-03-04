@@ -8,17 +8,16 @@ import java.net.UnknownHostException;
 public class CounterClient implements Runnable {
 
 
-    private  Socket socketClient = null;
-    private  int portEcoute;
+    private Socket socketClient = null;
+    private int portEcoute;
     private BufferedReader input = null;
     private PrintWriter output = null;
     private String currentCommand = null;
     private Menu menu;
 
 
-
     public CounterClient(int portEcoute) {
-        this.portEcoute=portEcoute;
+        this.portEcoute = portEcoute;
         this.menu = new MenuImpl();
         // Création de la socke
         try {
@@ -47,8 +46,7 @@ public class CounterClient implements Runnable {
         do {
             this.menu.printMenu();
             this.currentCommand = this.menu.chooseCommand();
-            if (!this.currentCommand.equals(ClientParameters.END))
-                this.executeCommand();
+            this.executeCommand();
         } while (!this.currentCommand.equals(ClientParameters.END));
 
 
@@ -67,11 +65,11 @@ public class CounterClient implements Runnable {
     private void executeCommand() {
 
         this.output.println(this.currentCommand);
-        if(this.currentCommand.equals(ClientParameters.GET)){
+        if (this.currentCommand.equals(ClientParameters.GET)) {
             // Lecture de la valeur du compteur
             try {
                 String counterValue = input.readLine();
-                System.out.println("La valeur compteur est: "+counterValue);
+                System.out.println("La valeur compteur est: " + counterValue);
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
                 System.exit(-1);
@@ -79,7 +77,6 @@ public class CounterClient implements Runnable {
         }
 
 
-
-        if(DebugTp2_3.CLIENT_DEBUG_ON) System.out.println(this.currentCommand + " Executed");
+        if (DebugTp2_3.CLIENT_DEBUG_ON) System.out.println(this.currentCommand + " Executed");
     }
 }

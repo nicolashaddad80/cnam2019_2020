@@ -41,8 +41,7 @@ public class CounterThread extends Thread {
                 System.exit(-1);
             }
             if (DebugTp2_3.SERVER_THREAD_DEBUG_ON) System.out.println("Command recue: " + command);
-            if (!this.command.equals(ClientParameters.END))
-                this.executeCommand(command);
+            this.executeCommand(command);
 
         } while (!this.command.equals(ClientParameters.END));
         // Fermeture des flux et des sockets
@@ -69,6 +68,18 @@ public class CounterThread extends Thread {
             case ClientParameters.GET:
                 if (DebugTp2_3.SERVER_THREAD_TRACE_ON) System.out.println("Sending Counter Value");
                 this.sendServerCounterValue();
+                break;
+            case ClientParameters.END:
+                if (DebugTp2_3.SERVER_THREAD_TRACE_ON) System.out.println("Client Communication end, will clean exit");
+                // Fermeture des flux et des sockets
+                try {
+                    this.input.close();
+                    this.output.close();
+                    this.socketClient.close();
+                } catch (IOException e) {
+                    System.err.println("Erreur lors de la fermeture des flux et des sockets : " + e);
+                    System.exit(-1);
+                }
                 break;
 
             default:
