@@ -22,10 +22,7 @@ public class Server implements Runnable {
 
     //make constructor private to avoid invoking it
     public Server(int clinetPortNum) {
-
         Server.clientPortNum = clinetPortNum;
-
-
     }
 
     public static Counter getCounter() {
