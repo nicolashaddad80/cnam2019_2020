@@ -1,5 +1,7 @@
 package fr.cnam.smb111.cours02.tp2_3;
 
+import fr.cnam.smb111.cours02.tp2_3.textformating.TextColor;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -26,7 +28,7 @@ public class CounterClient implements Runnable {
             System.err.println("Erreur sur l'hote : " + e);
             System.exit(-1);
         } catch (IOException e) {
-            System.err.println("Creation de la socket impossible : " + e);
+            System.err.println("Creation de la socket impossible Verifiez si le Serveur est lance: " + e);
             System.exit(-1);
         }
 
@@ -69,7 +71,7 @@ public class CounterClient implements Runnable {
             // Lecture de la valeur du compteur
             try {
                 String counterValue = input.readLine();
-                System.out.println("La valeur compteur est: " + counterValue);
+                System.out.println(TextColor.BLUE.set + "La valeur du compteur Distant est: " + TextColor.RED.set + counterValue + TextColor.DEFAULT.set);
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
                 System.exit(-1);

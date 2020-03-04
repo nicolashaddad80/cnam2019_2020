@@ -10,11 +10,11 @@ public class CounterServer implements Runnable {
 
 
     private int portEcoute;
-    private ServerSocket socketServeur=null;
+    private ServerSocket socketServeur = null;
 
     public CounterServer(int portEcoute) {
         this.portEcoute = portEcoute;
-        // Cr�ation de la socket serveur
+        // Création de la socket serveur
 
         try {
             this.socketServeur = new ServerSocket(this.portEcoute);
@@ -27,6 +27,16 @@ public class CounterServer implements Runnable {
     @Override
     public void run() {
         while (true) {
+
+            //Adding shutdown Hook inorder to close ServerSocket properly
+            Runtime.getRuntime().addShutdownHook(new Thread() {
+                public void run() {
+                    try {
+                        socketServeur.close();
+                        System.out.println("The server is shut down!");
+                    } catch (IOException e) { /* failed */ }
+                }
+            });
             // Attente des connexions des clients
             try {
                 Socket socketClient;

@@ -1,20 +1,20 @@
 package fr.cnam.smb111.cours02.tp2_3;
 
-import fr.cnam.nfp121.tp9.menu.specification.Entry;
+import fr.cnam.smb111.cours02.tp2_3.textformating.TextColor;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MenuImpl implements Menu{
+public class MenuImpl implements Menu {
     @Override
     public void printMenu() {
         System.out.println("======================================");
-        System.out.println("|        Counter Client Menu          |");
+        System.out.println("|" + TextColor.BLUE.set + "        Counter Client Menu       " + TextColor.DEFAULT.set + "  |");
         System.out.println("======================================");
-        System.out.println("1- Increment My Server Counter        |");
-        System.out.println("2- Decrement My Server Counter        |");
-        System.out.println("3- Display My Server Counter          |");
-        System.out.println("4- Quit                               |");
+        System.out.println(TextColor.GREEN.set + "1" + TextColor.DEFAULT.set + "- Increment My Server Counter       |");
+        System.out.println(TextColor.GREEN.set + "2" + TextColor.DEFAULT.set + "- Decrement My Server Counter       |");
+        System.out.println(TextColor.GREEN.set + "3" + TextColor.DEFAULT.set + "- Display My Server Counter         |");
+        System.out.println(TextColor.GREEN.set + "4" + TextColor.DEFAULT.set + "- Quit                              |");
         System.out.println("======================================");
     }
 
@@ -44,7 +44,7 @@ public class MenuImpl implements Menu{
                     System.exit(-1);
                 }
             }
-            if(!ok)
+            if (!ok)
                 System.out.println("Il faut choisir un numero valide:");
         }
 
