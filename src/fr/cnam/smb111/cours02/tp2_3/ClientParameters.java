@@ -7,13 +7,13 @@ public class ClientParameters {
     public static final String GET = "GET";
     public static final String END = "END";
 
-    /*
+    /* To Clean
     //Marchaling/Unmarshalling params
     public static final String MARSHALLING_DELIMETER = "\t";
 
 
      */
-    /*
+    /* To Clean
     //Client communication infos
     public static final int CLIENT_PORT = 2001;
     */
