@@ -1,6 +1,6 @@
 package fr.cnam.smb111.cours02.tp2_1.modeconnectemulticlients;
 
-import fr.cnam.smb111.cours02.tp2_3.ServerParametersTp2_3;
+import fr.cnam.smb111.cours02.tp2_3.server.ServerParametersTp2_3;
 
 import java.io.IOException;
 import java.net.ServerSocket;

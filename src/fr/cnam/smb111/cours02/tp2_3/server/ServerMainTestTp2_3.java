@@ -1,7 +1,9 @@
-package fr.cnam.smb111.cours02.tp2_3;
+package fr.cnam.smb111.cours02.tp2_3.server;
 
 
-public class ServerTestTp2_3 {
+import fr.cnam.smb111.cours02.tp2_3.DebugTp2_3;
+
+public class ServerMainTestTp2_3 {
 
     public static void main(String[] args) {
         if (DebugTp2_3.SERVER_TRACE_ON) System.out.println("Creating Server Daemon");

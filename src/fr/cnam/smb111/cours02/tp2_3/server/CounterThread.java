@@ -1,7 +1,9 @@
-package fr.cnam.smb111.cours02.tp2_3;
+package fr.cnam.smb111.cours02.tp2_3.server;
 
 import fr.cnam.smb111.cours02.tp2_2.Counter;
 import fr.cnam.smb111.cours02.tp2_2.CounterImpl;
+import fr.cnam.smb111.cours02.tp2_3.DebugTp2_3;
+import fr.cnam.smb111.cours02.tp2_3.client.ClientParameters;
 
 import java.io.*;
 import java.net.Socket;

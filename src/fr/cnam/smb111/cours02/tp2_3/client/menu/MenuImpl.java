@@ -1,6 +1,7 @@
-package fr.cnam.smb111.cours02.tp2_3;
+package fr.cnam.smb111.cours02.tp2_3.client.menu;
 
-import fr.cnam.smb111.cours02.tp2_3.textformating.TextColor;
+import fr.cnam.smb111.cours02.tp2_3.client.ClientParameters;
+import fr.cnam.smb111.cours02.tp2_3.client.textformating.TextColor;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

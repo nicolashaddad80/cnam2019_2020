@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.tp2_3;
+package fr.cnam.smb111.cours02.tp2_3.server;
 
 
 import java.io.IOException;

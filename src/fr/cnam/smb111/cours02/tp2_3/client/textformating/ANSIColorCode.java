@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.tp2_3.textformating;
+package fr.cnam.smb111.cours02.tp2_3.client.textformating;
 
 public final class ANSIColorCode {
     //some constants to manage output text colors

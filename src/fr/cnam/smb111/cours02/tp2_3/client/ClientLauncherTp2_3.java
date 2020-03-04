@@ -1,5 +1,7 @@
-package fr.cnam.smb111.cours02.tp2_3;
+package fr.cnam.smb111.cours02.tp2_3.client;
 
+
+import fr.cnam.smb111.cours02.tp2_3.server.ServerParametersTp2_3;
 
 public class ClientLauncherTp2_3 {
 
