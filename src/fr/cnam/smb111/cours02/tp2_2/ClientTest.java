@@ -2,50 +2,22 @@ package fr.cnam.smb111.cours02.tp2_2;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ClientTest {
     public static void main(String[] args) {
-        ExecutorService executor = Executors.newFixedThreadPool(2);
-        ReadWriteLock lock = new ReentrantReadWriteLock();
+        ExecutorService executor = Executors.newFixedThreadPool(10);
 
-        lock.writeLock().lock();
-        executor.submit(new Thread(new Client(ClientParameters.UP)));
-        lock.writeLock().unlock();
+        executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.UP)));
+        executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.GET)));
+        executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.UP)));
+        executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.GET)));
+        executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.DOWN)));
+        executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.GET)));
 
-        lock.readLock().lock();
-        executor.submit(new Thread(new Client(ClientParameters.GET)));
-        lock.readLock().unlock();
-
-        lock.writeLock().lock();
-        executor.submit(new Thread(new Client(ClientParameters.UP)));
-        lock.writeLock().unlock();
-
-        lock.readLock().lock();
-        executor.submit(new Thread(new Client(ClientParameters.GET)));
-        lock.readLock().unlock();
-
-
-        lock.writeLock().lock();
-        executor.submit(new Thread(new Client(ClientParameters.DOWN)));
-        lock.writeLock().unlock();
-
-        lock.readLock().lock();
-        executor.submit(new Thread(new Client(ClientParameters.GET)));
-        lock.readLock().unlock();
-
-        lock.writeLock().lock();
         for (int i = 0; i < 100; i++)
-            executor.submit(new Thread(new Client(ClientParameters.UP)));
-        lock.writeLock().unlock();
+            executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.UP)));
 
-        lock.readLock().lock();
-        for (int i = 0; i < 5; i++)
-            executor.submit(new Thread(new Client(ClientParameters.GET)));
-        lock.readLock().unlock();
-
-
+        for (int i = 0; i < 10; i++)
+            executor.submit(new Thread(new Client(ServerParameters.SERVER_ADDRESS, ServerParameters.SERVER_PORT_NUMBER, ClientParameters.GET)));
     }
-
 }

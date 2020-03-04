@@ -7,28 +7,25 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 public class Server implements Runnable {
-    private static int serverPort = 0;
-    private static Counter counter = null;
-    private DatagramSocket datagramSocket = null;
-    private DatagramPacket receiveRequestPacket;
+    private static int clientPortNum = 0;
+    private static DatagramSocket serverSocket = null;
+    private static Counter counter = new CounterImpl();
 
-    //make constructor private to avoid invoking it
-    public Server(int serverPort) {
-        Server.counter = new CounterImpl();
-        Server.serverPort = serverPort;
+    static {
         try {
-            this.datagramSocket = new DatagramSocket(Server.serverPort);
+            serverSocket = new DatagramSocket(ServerParameters.SERVER_PORT_NUMBER);
         } catch (SocketException e) {
             System.err.println("Erreur lors de la creation de la socket : " + e);
             System.exit(-1);
         }
-
-        byte[] tampon = new byte[1024];
-        this.receiveRequestPacket = new DatagramPacket(tampon, tampon.length);
     }
 
-    public static int getServerPort() {
-        return Server.serverPort;
+    //make constructor private to avoid invoking it
+    public Server(int clinetPortNum) {
+
+        Server.clientPortNum = clinetPortNum;
+
+
     }
 
     public static Counter getCounter() {
@@ -38,21 +35,22 @@ public class Server implements Runnable {
     @Override
     public void run() {
 
-
         while (true) {
             // Reading Client Request
             try {
+                byte[] tampon = new byte[1024];
+                DatagramPacket receiveRequestPacket = new DatagramPacket(tampon, tampon.length);
                 if (Debug.SERVER_TRACE_ON) System.out.println("Waiting for Client Request...");
-                datagramSocket.receive(receiveRequestPacket);
+                serverSocket.receive(receiveRequestPacket);
                 String clientRequestPacket = new String(receiveRequestPacket.getData(), 0, receiveRequestPacket.getLength());
-                if (Debug.SERVER_TRACE_ON) System.out.println("Received Request: " + clientRequestPacket);
+                if (Debug.SERVER_DEBUG_ON) System.out.println("Received Request: " + clientRequestPacket);
 
                 //Unmarchaling
                 String[] packetDecoded = clientRequestPacket.split(ClientParameters.MARSHALLING_DELIMETER);
                 if (packetDecoded.length != 2) throw new ClientRequestFormatError();
 
                 //Create Thread to serve client Request
-                new CounterCommandsThread(packetDecoded[0].trim(), packetDecoded[1].trim(), this.datagramSocket).start();
+                new CounterCommandsThread(packetDecoded[0].trim(), clientPortNum, packetDecoded[1].trim(), serverSocket).start();
 
             } catch (IOException e) {
                 System.err.println("Erreur lors de la reception du message : " + e);

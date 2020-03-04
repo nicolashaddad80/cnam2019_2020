@@ -4,7 +4,7 @@ public class ServerTest {
 
     public static void main(String[] args) {
         if (Debug.SERVER_TRACE_ON) System.out.println("Creating Server Daemon");
-        Thread serverDaemon = new Thread(new Server(ServerParameters.SERVER_PORT_NUMBER));
+        Thread serverDaemon = new Thread(new Server(ClientParameters.CLIENT_PORT));
         // serverDaemon.setDaemon(true);
         if (Debug.SERVER_TRACE_ON) System.out.println("Starting Server Daemon......");
         serverDaemon.start();

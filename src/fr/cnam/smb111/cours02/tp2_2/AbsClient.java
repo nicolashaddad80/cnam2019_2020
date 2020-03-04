@@ -18,13 +18,17 @@ public abstract class AbsClient implements Runnable {
         }
     }
 
-    private String clientIpAddress = null;
+    private String serverAddress = null;
+    private int serverPortNum;
     private String command;
+    private String clientIpAddress = null;
 
-    public AbsClient(String command) {
+
+    public AbsClient(String serverAddress, int serverPortNum, String command) {
 
         this.command = command;
-
+        this.serverAddress = serverAddress;
+        this.serverPortNum = serverPortNum;
         try {
             this.clientIpAddress = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
@@ -47,7 +51,7 @@ public abstract class AbsClient implements Runnable {
             byte[] tampon = null;
             String message = "" + this.clientIpAddress + ClientParameters.MARSHALLING_DELIMETER + this.command;
             tampon = message.getBytes();
-            msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(ServerParameters.SERVER_ADDRESS), ServerParameters.SERVER_PORT_NUMBER);
+            msg = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(this.serverAddress), this.serverPortNum);
             // Sending Packet
             try {
                 AbsClient.clientSocket.send(msg);
