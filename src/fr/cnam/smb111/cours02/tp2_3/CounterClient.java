@@ -8,18 +8,21 @@ import java.net.UnknownHostException;
 public class CounterClient implements Runnable {
 
 
-    private static Socket socketClient = null;
-
+    private  Socket socketClient = null;
+    private  int portEcoute;
     private BufferedReader input = null;
     private PrintWriter output = null;
     private String currentCommand = null;
     private Menu menu;
 
-    static {
 
+
+    public CounterClient(int portEcoute) {
+        this.portEcoute=portEcoute;
+        this.menu = new MenuImpl();
         // Création de la socke
         try {
-            socketClient = new Socket("localhost", ServerParametersTp2_3.SERVER_PORT_NUMBER);
+            socketClient = new Socket("localhost", this.portEcoute);
         } catch (UnknownHostException e) {
             System.err.println("Erreur sur l'hote : " + e);
             System.exit(-1);
@@ -27,12 +30,6 @@ public class CounterClient implements Runnable {
             System.err.println("Creation de la socket impossible : " + e);
             System.exit(-1);
         }
-
-    }
-
-    public CounterClient(int portEcoute) {
-        this.menu = new MenuImpl();
-
 
         // Association d'un flux d'entree et de sortie
 
@@ -52,14 +49,14 @@ public class CounterClient implements Runnable {
             this.currentCommand = this.menu.chooseCommand();
             if (!this.currentCommand.equals(ClientParameters.END))
                 this.executeCommand();
-        } while (this.currentCommand.equals(ClientParameters.END));
+        } while (!this.currentCommand.equals(ClientParameters.END));
 
 
         // Fermeture des flux et de la socket
         try {
             this.input.close();
             this.output.close();
-            //socketClient.close();
+            this.socketClient.close();
             System.out.println("Merci d'avoit Utiliser Cette Application");
         } catch (IOException e) {
             System.err.println("Erreur lors de la fermeture des flux et de la socket : " + e);
@@ -68,6 +65,21 @@ public class CounterClient implements Runnable {
     }
 
     private void executeCommand() {
-        System.out.println(this.currentCommand + " Executed");
+
+        this.output.println(this.currentCommand);
+        if(this.currentCommand.equals(ClientParameters.GET)){
+            // Lecture de la valeur du compteur
+            try {
+                String counterValue = input.readLine();
+                System.out.println("La valeur compteur est: "+counterValue);
+            } catch (IOException e) {
+                System.err.println("Erreur lors de la lecture : " + e);
+                System.exit(-1);
+            }
+        }
+
+
+
+        if(DebugTp2_3.CLIENT_DEBUG_ON) System.out.println(this.currentCommand + " Executed");
     }
 }

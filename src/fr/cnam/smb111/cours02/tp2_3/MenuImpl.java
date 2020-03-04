@@ -1,5 +1,8 @@
 package fr.cnam.smb111.cours02.tp2_3;
 
+import fr.cnam.nfp121.tp9.menu.specification.Entry;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuImpl implements Menu{
@@ -27,18 +30,22 @@ public class MenuImpl implements Menu{
 
         while (!ok) {
 
-            String shortcut;
             try {
                 choix = scanner.nextInt();
-                if (choix > 0 && choix < 4)
+                if (choix >= 1 && choix <= 4)
                     ok = true;
-            } catch (Exception e1) {
-                System.out.println("Exception on Input Stream");
-                System.exit(-1);
-            } finally {
-                if (!ok)
-                    System.out.println("Il faut choisir une commande valide:");
+            } catch (InputMismatchException e) {
+                try {
+                    scanner.nextLine();
+                    System.out.println("Il faut choisir un numero valide:");
+
+                } catch (Exception e1) {
+                    System.out.println("Erreur de lecrure ");
+                    System.exit(-1);
+                }
             }
+            if(!ok)
+                System.out.println("Il faut choisir un numero valide:");
         }
 
         switch (choix) {
@@ -53,9 +60,10 @@ public class MenuImpl implements Menu{
                 break;
             case 4:
                 command = ClientParameters.END;
+                break;
 
             default:
-                System.err.println("Uknown Command");
+                System.err.println("Uknown Command From menu");
                 System.exit(-1);
                 break;
         }

@@ -41,7 +41,8 @@ public class CounterThread extends Thread {
                 System.exit(-1);
             }
             if (DebugTp2_3.SERVER_THREAD_DEBUG_ON) System.out.println("Command recue: " + command);
-            this.executeCommand(command);
+            if (!this.command.equals(ClientParameters.END))
+                this.executeCommand(command);
 
         } while (!this.command.equals(ClientParameters.END));
         // Fermeture des flux et des sockets
@@ -66,7 +67,7 @@ public class CounterThread extends Thread {
                 if (DebugTp2_3.SERVER_THREAD_TRACE_ON) System.out.println("Incremating (++) Server Counter");
                 break;
             case ClientParameters.GET:
-                if (DebugTp2_3.SERVER_THREAD_TRACE_ON) System.out.println("Seding Counter Value");
+                if (DebugTp2_3.SERVER_THREAD_TRACE_ON) System.out.println("Sending Counter Value");
                 this.sendServerCounterValue();
                 break;
 
@@ -79,7 +80,7 @@ public class CounterThread extends Thread {
 
     private void sendServerCounterValue() {
         // Envoi de la valeur du compteur
-        String counterValue = new StringBuilder(this.threadCounter.getValue()).toString();
+        String counterValue = (new StringBuilder().append(this.threadCounter.getValue())).toString();
         if (DebugTp2_3.SERVER_THREAD_TRACE_ON) System.out.println("Envoi: " + counterValue);
         output.println(counterValue);
     }
