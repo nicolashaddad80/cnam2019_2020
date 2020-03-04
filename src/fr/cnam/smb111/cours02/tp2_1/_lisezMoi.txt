@@ -1,0 +1,28 @@
+*** Les sockets en Java
+
+* Les répertoires
+
+- Mode_connecte : un exemple de socket client/serveur en mode connecté
+- Mode_connecte_DataStream : un exemple de socket client/serveur en mode connecté qui utilise les flux de type DataStream
+- Mode_connecte_ObjectStream : un exemple de socket client/serveur en mode connecté qui utilise les flux de type ObjectStream
+- Mode_non_connecte : un exemple de socket client/serveur en mode non connecté
+- Mode_connecte_multi_clients : un exemple de serveur en mode connecté multi-clients
+
+* Compilation
+
+Avant tout :
+- Avant toute chose, il faut installer le JDK Java Standard Edition.
+- Sous Windows, il faudra modifier la variable d'environnement Path et y ajouter le chemin vers le répertoire bin du répertoire contenant le JDK.
+- Dans un invite de commandes (ou un terminal sous Linux), vérifiez que les commandes java et javac fonctionnent (tapez simplement le nom des commandes).
+
+Une fois les vérifications faites :
+- Dans chaque répertoire, compilez chaque fichier à l'aide de la commande javac.
+- Faites javac *.java pour compiler l'ensemble en une seule fois.
+
+* Exécution
+
+Avec 2 terminaux/invites de commandes :
+
+1) Dans le premier terminal :  java Serveur
+2) Dans le deuxième terminal : java Client
+
