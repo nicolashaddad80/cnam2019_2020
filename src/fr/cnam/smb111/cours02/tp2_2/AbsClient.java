@@ -9,7 +9,7 @@ public abstract class AbsClient implements Runnable {
     private static DatagramSocket clientSocket = null;
 
     static {
-        // Creating Client Socket
+        // Creating client Socket
         try {
             clientSocket = new DatagramSocket(ClientParameters.CLIENT_PORT);
         } catch (SocketException e) {
@@ -42,7 +42,7 @@ public abstract class AbsClient implements Runnable {
         if (this.command.equals(ClientParameters.GET))
             this.receiveValue();
 
-        if (Debug.CLIENT_TRACE_ON) System.out.println(" Client Thread Job Done");
+        if (Debug.CLIENT_TRACE_ON) System.out.println(" client Thread Job Done");
     }
 
     protected void sendRequest() {

@@ -3,7 +3,7 @@ package fr.cnam.smb111.cours02.tp2_2;
 
 public class Debug {
 
-    //Client  Debug & trace
+    //client  Debug & trace
     public final static boolean CLIENT_DEBUG_ON = false;
     public final static boolean CLIENT_TRACE_ON = false;
     //Server Thread Debug & trace

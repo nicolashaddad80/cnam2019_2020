@@ -10,7 +10,7 @@ public class MenuImpl implements Menu {
     @Override
     public void printMenu() {
         System.out.println("======================================");
-        System.out.println("|" + TextColor.BLUE.set + "        Counter Client Menu       " + TextColor.DEFAULT.set + "  |");
+        System.out.println("|" + TextColor.BLUE.set + "        Counter client Menu       " + TextColor.DEFAULT.set + "  |");
         System.out.println("======================================");
         System.out.println(TextColor.GREEN.set + "1" + TextColor.DEFAULT.set + "- Increment My Server Counter       |");
         System.out.println(TextColor.GREEN.set + "2" + TextColor.DEFAULT.set + "- Decrement My Server Counter       |");

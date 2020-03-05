@@ -11,7 +11,7 @@ import java.net.Socket;
  * multi-thread�.
  * Le client envoie la chaine 'Bonjour' et lit une reponse de la part du serveur.
  * Le client envoie ensuite la chaine 'Au revoir' et lit une reponse.
- * Le numero de port du serveur est specifie dans la classe Serveur.
+ * Le numero de port du serveur est specifie dans la classe serveur.
  *
  * @author Cyril Rabat
  */

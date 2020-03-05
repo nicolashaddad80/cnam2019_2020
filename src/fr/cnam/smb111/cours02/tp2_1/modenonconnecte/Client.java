@@ -6,7 +6,7 @@ import java.net.*;
 /**
  * Classe correspondant à un client en mode non connecte.
  * La chaine de caracteres "Bonjour" est envoyee au serveur.
- * Le port d'ecoute du serveur est indique dans la classe Serveur.
+ * Le port d'ecoute du serveur est indique dans la classe serveur.
  *
  * @author Cyril Rabat
  */
