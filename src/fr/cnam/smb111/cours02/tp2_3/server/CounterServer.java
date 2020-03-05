@@ -37,7 +37,7 @@ public class CounterServer implements Runnable {
                     } catch (IOException e) { /* failed */ }
                 }
             });
-            // Attente des connexions des clients
+            // Attente des connexions des client
             try {
                 Socket socketClient;
                 while (true) {
