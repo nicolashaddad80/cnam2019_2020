@@ -1,7 +1,6 @@
 package fr.cnam.smb111.cours02.tp2_5.client;
 
 
-
 import fr.cnam.smb111.cours02.tp2_5.common.ICalendrier;
 import fr.cnam.smb111.cours02.tp2_5.common.IHeure;
 
@@ -49,6 +48,19 @@ public class Client {
             System.out.println("Heure : " + heure);
         } catch (RemoteException e) {
             System.err.println("Erreur lors de l'acces aux methodes");
+            System.exit(-1);
+        }
+
+
+        //Get Statistics from remote calendrier
+
+        try {
+            int[] distantCalandarStatistics = calendrier.getStatistics();
+            System.out.println("Nmobre d'accès getjour : " + distantCalandarStatistics[0]);
+            System.out.println("Nmobre d'accès getMois : " + distantCalandarStatistics[1]);
+            System.out.println("Nmobre d'accès getAnnee : " + distantCalandarStatistics[2]);
+        } catch (RemoteException e) {
+            System.err.println("Erreur lors de l'acces a la methode getStatistics()");
             System.exit(-1);
         }
     }

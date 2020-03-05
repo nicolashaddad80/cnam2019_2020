@@ -36,4 +36,5 @@ public interface ICalendrier extends Remote {
 
     IHeure getHeure() throws RemoteException;
 
+    int[] getStatistics() throws RemoteException;
 }
