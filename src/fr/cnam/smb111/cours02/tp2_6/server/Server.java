@@ -30,7 +30,7 @@ public class Server {
         // Enregistrement aupres du Registry
         try {
             // Enregistrement de l'objet sur le Registry
-            Naming.rebind("usineCafetieres", cafetieresFactory);
+            Naming.rebind(ICafetiereFactory.CAFETIERE_FACTORY_NAME, cafetieresFactory);
         } catch (RemoteException e) {
             System.err.println("Impossible de mettre a disposition l'usine de cafetieres' : " + e);
             System.exit(-1);

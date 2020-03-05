@@ -39,7 +39,7 @@ public class ThreadConnexion extends Thread {
         }
         System.out.println("Lu: " + message);
 
-        // Mise en pause pour illustrer le mode multi-clients
+        // Mise en pause pour illustrer le mode multi-client
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -61,7 +61,7 @@ public class ThreadConnexion extends Thread {
         }
         System.out.println("Lu: " + message);
 
-        // Mise en pause pour illustrer le mode multi-clients
+        // Mise en pause pour illustrer le mode multi-client
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

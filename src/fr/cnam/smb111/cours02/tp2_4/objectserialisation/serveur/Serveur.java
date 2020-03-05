@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 /**
- * serveur qui cree un calendrier distant et le met a disposition des clients.
+ * serveur qui cree un calendrier distant et le met a disposition des client.
  *
  * @author Cyril Rabat
  */

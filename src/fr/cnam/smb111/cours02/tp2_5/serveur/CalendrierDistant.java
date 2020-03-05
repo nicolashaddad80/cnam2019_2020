@@ -10,7 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Calendar;
 
 /**
- * Cette classe correspond a un calendrier distant. Elle permet aux clients
+ * Cette classe correspond a un calendrier distant. Elle permet aux client
  * de recuperer le jour, le mois et l'annee.
  * Elle implemente l'interface ICalendrier.
  *
