@@ -33,11 +33,11 @@ public class Server implements Runnable {
     public void run() {
 
         while (true) {
-            // Reading Client Request
+            // Reading client Request
             try {
                 byte[] tampon = new byte[1024];
                 DatagramPacket receiveRequestPacket = new DatagramPacket(tampon, tampon.length);
-                if (Debug.SERVER_TRACE_ON) System.out.println("Waiting for Client Request...");
+                if (Debug.SERVER_TRACE_ON) System.out.println("Waiting for client Request...");
                 serverSocket.receive(receiveRequestPacket);
                 String clientRequestPacket = new String(receiveRequestPacket.getData(), 0, receiveRequestPacket.getLength());
                 if (Debug.SERVER_DEBUG_ON) System.out.println("Received Request: " + clientRequestPacket);
