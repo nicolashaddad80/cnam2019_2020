@@ -7,7 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * Classe correspondant � un serveur en mode connecte, multi-clients et
+ * Classe correspondant � un serveur en mode connecte, multi-client et
  * multi-thread�.
  * Le client envoie la chaine 'Bonjour' et lit une reponse de la part du serveur.
  * Le client envoie ensuite la chaine 'Au revoir' et lit une reponse.
@@ -30,7 +30,7 @@ public class Serveur {
             System.exit(-1);
         }
 
-        // Attente des connexions des clients
+        // Attente des connexions des client
         try {
             Socket socketClient;
             while (true) {

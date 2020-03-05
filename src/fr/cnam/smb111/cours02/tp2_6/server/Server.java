@@ -1,24 +1,14 @@
-package fr.cnam.smb111.cours02.tp2_4.objectserialisation.serveur;
+package fr.cnam.smb111.cours02.tp2_6.server;
 
-import fr.cnam.smb111.cours02.tp2_4.objectserialisation.common.ICalendrier;
+import fr.cnam.smb111.cours02.tp2_6.common.ICafetiereFactory;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
-/**
- * serveur qui cree un calendrier distant et le met a disposition des client.
- *
- * @author Cyril Rabat
- */
-public class Serveur {
+public class Server {
 
-    /**
-     * Methode principale.
-     *
-     * @param args inutilise
-     */
     public static void main(String[] args) {
         // Creation du RMI registry
         try {
@@ -29,9 +19,9 @@ public class Serveur {
         }
 
         // Creation de l'objet distant
-        ICalendrier calendrier = null;
+        ICafetiereFactory cafetieresFactory = null;
         try {
-            calendrier = new CalendrierDistant();
+            cafetieresFactory = new CafetiereFactory();
         } catch (RemoteException e) {
             System.err.println("Erreur lors de la creation de l'objet : " + e);
             System.exit(-1);
@@ -40,9 +30,9 @@ public class Serveur {
         // Enregistrement aupres du Registry
         try {
             // Enregistrement de l'objet sur le Registry
-            Naming.rebind("monCalendrier", calendrier);
+            Naming.rebind(ICafetiereFactory.CAFETIERE_FACTORY_NAME, cafetieresFactory);
         } catch (RemoteException e) {
-            System.err.println("Impossible de mettre a disposition le calendrier : " + e);
+            System.err.println("Impossible de mettre a disposition l'usine de cafetieres' : " + e);
             System.exit(-1);
         } catch (MalformedURLException e) {
             System.err.println("Probleme avec l'URL : " + e);
