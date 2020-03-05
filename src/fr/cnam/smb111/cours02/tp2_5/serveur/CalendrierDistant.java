@@ -2,6 +2,7 @@ package fr.cnam.smb111.cours02.tp2_5.serveur;
 
 import fr.cnam.smb111.cours02.tp2_5.common.ICalendrier;
 import fr.cnam.smb111.cours02.tp2_5.common.IHeure;
+import fr.cnam.smb111.cours02.tp2_5.common.IMaDate;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -22,13 +23,14 @@ public class CalendrierDistant extends UnicastRemoteObject implements ICalendrie
     //statisticsTable[1] represents month statistics
     //statisticsTable[2] represents year statistics
     private int[] statisticsTable ;
+    private IMaDate date=null;
 
     /**
      * Constructeur par defaut. Permet d'initialiser le calendrier.
      */
     public CalendrierDistant() throws RemoteException {
         calendrier = Calendar.getInstance();
-
+        this.date=new MaDate(this.calendrier.get(Calendar.DAY_OF_MONTH),this.calendrier.get(Calendar.MONTH),this.calendrier.get(Calendar.YEAR));
 
         //initialisation of statistic counter to 0 at creation
         this.statisticsTable=new int[3];
@@ -83,6 +85,11 @@ public class CalendrierDistant extends UnicastRemoteObject implements ICalendrie
     @Override
     public int[] getStatistics() throws RemoteException {
         return this.statisticsTable;
+    }
+
+    @Override
+    public IMaDate getDateComplete() throws RemoteException {
+        return this.date;
     }
 
 }

@@ -3,6 +3,7 @@ package fr.cnam.smb111.cours02.tp2_5.client;
 
 import fr.cnam.smb111.cours02.tp2_5.common.ICalendrier;
 import fr.cnam.smb111.cours02.tp2_5.common.IHeure;
+import fr.cnam.smb111.cours02.tp2_5.common.IMaDate;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -63,6 +64,20 @@ public class Client {
             System.err.println("Erreur lors de l'acces a la methode getStatistics()");
             System.exit(-1);
         }
+
+        //Get Date by hetDateComplete methode that serilizes MaDate remote object
+
+        try {
+
+            System.out.println("Getting date by remote MaDate Object refernece");
+            IMaDate date = (IMaDate) calendrier.getDateComplete();
+            //Extacting information from referenced remote MaDate Object
+            System.out.println("Nous Somes Le: "+date);
+        } catch (RemoteException e) {
+            System.err.println("Erreur lors de l'acces a la methode getDAteComplete()");
+            System.exit(-1);
+        }
+
     }
 
 }
