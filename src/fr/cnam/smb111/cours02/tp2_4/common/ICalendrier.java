@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.tp2_4.serveur;
+package fr.cnam.smb111.cours02.tp2_4.common;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

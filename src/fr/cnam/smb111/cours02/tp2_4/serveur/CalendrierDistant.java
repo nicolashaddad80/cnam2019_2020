@@ -1,5 +1,7 @@
 package fr.cnam.smb111.cours02.tp2_4.serveur;
 
+import fr.cnam.smb111.cours02.tp2_4.common.ICalendrier;
+
 import java.util.Calendar;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;

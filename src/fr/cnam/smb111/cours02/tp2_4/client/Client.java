@@ -1,5 +1,7 @@
 package fr.cnam.smb111.cours02.tp2_4.client;
 
+import fr.cnam.smb111.cours02.tp2_4.common.ICalendrier;
+
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.NotBoundException;

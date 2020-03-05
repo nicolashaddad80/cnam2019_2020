@@ -1,5 +1,8 @@
 package fr.cnam.smb111.cours02.tp2_4.serveur;
 
+import fr.cnam.smb111.cours02.tp2_4.common.CommonParameters;
+import fr.cnam.smb111.cours02.tp2_4.common.ICalendrier;
+
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.net.MalformedURLException;
@@ -18,7 +21,7 @@ public class Serveur {
     public static void main(String[] args) {
         // Step 01 Creation du RMI registry
         try {
-            LocateRegistry.createRegistry(1099);
+            LocateRegistry.createRegistry(CommonParameters.RMI_REGISTRY_PORT_NUMBER);
         } catch(RemoteException e) {
             System.err.println("Erreur lors de la recuperation du registry : " + e);
             System.exit(-1);
