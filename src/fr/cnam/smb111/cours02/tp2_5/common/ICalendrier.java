@@ -39,4 +39,6 @@ public interface ICalendrier extends Remote {
     int[] getStatistics() throws RemoteException;
 
     IMaDate getDateComplete() throws  RemoteException;
+
+    void update(IMaDate newDate) throws RemoteException;
 }

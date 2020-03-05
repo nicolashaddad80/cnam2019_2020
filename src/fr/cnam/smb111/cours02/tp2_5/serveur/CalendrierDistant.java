@@ -3,6 +3,7 @@ package fr.cnam.smb111.cours02.tp2_5.serveur;
 import fr.cnam.smb111.cours02.tp2_5.common.ICalendrier;
 import fr.cnam.smb111.cours02.tp2_5.common.IHeure;
 import fr.cnam.smb111.cours02.tp2_5.common.IMaDate;
+import fr.cnam.smb111.cours02.tp2_5.common.MaDate;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -90,6 +91,15 @@ public class CalendrierDistant extends UnicastRemoteObject implements ICalendrie
     @Override
     public IMaDate getDateComplete() throws RemoteException {
         return this.date;
+    }
+
+    @Override
+    public void update(IMaDate newDate) throws RemoteException {
+
+        this.date.setJour(newDate.getJour());
+        this.date.setMois(newDate.getMois());
+        this.date.setAnnee(newDate.getAnnee());
+
     }
 
 }
