@@ -1,15 +1,16 @@
-package fr.cnam.smb111.cours02.tp2_4.serveur;
+package fr.cnam.smb111.cours02.tp2_4.objectserialisation.serveur;
 
-import fr.cnam.smb111.cours02.tp2_4.common.ICalendrier;
+import fr.cnam.smb111.cours02.tp2_4.objectserialisation.common.ICalendrier;
 
-import java.util.Calendar;
-import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.Calendar;
 
 /**
  * Cette classe correspond a un calendrier distant. Elle permet aux clients
  * de recuperer le jour, le mois et l'annee.
  * Elle implemente l'interface ICalendrier.
+ *
  * @author Cyril Rabat
  */
 public class CalendrierDistant extends UnicastRemoteObject implements ICalendrier {
@@ -25,6 +26,7 @@ public class CalendrierDistant extends UnicastRemoteObject implements ICalendrie
 
     /**
      * Recupere le numero du jour dans le mois.
+     *
      * @return le numero du jour
      */
     public int getJour() throws RemoteException {
@@ -33,6 +35,7 @@ public class CalendrierDistant extends UnicastRemoteObject implements ICalendrie
 
     /**
      * Recupere le numero du mois (de 1 � 12).
+     *
      * @return le numero du mois
      */
     public int getMois() throws RemoteException {
@@ -41,10 +44,21 @@ public class CalendrierDistant extends UnicastRemoteObject implements ICalendrie
 
     /**
      * Recupere l'annee.
+     *
      * @return l'annee
      */
     public int getAnnee() throws RemoteException {
         return calendrier.get(Calendar.YEAR);
+    }
+
+    /**
+     * Recupere l'heure.
+     *
+     * @return l'heure
+     */
+    public Heure getHeure() throws RemoteException {
+        Heure heure = new Heure(Calendar.SECOND, Calendar.MINUTE, Calendar.HOUR_OF_DAY);
+        return heure;
     }
 
 }

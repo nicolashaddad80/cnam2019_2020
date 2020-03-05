@@ -1,0 +1,10 @@
+*** Prise en main de Java RMI
+
+* Répertoires
+
+- CalendrierDistant : exemple de base présenté dans le cours
+- CalendrierDistant_serialisation : exemple mettant en oeuvre le principe de sérialisation
+
+* Compilation et exécution
+
+Consultez le fichier _lisezMoi.txt présent dans chaque répertoire

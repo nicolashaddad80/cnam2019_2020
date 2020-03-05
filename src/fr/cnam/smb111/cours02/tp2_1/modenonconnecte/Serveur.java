@@ -8,7 +8,7 @@ import java.net.SocketException;
 /**
  * Classe correspondant à un serveur en mode non connecté.
  * La chaine de caractères "Bonjour" est envoyée au serveur.
- * Le port d'écoute du serveur est indiqué dans la classe Serveur.
+ * Le port d'écoute du serveur est indiqué dans la classe serveur.
  *
  * @author Cyril Rabat
  */

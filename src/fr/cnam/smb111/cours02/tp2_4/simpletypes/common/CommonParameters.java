@@ -1,4 +1,4 @@
-package fr.cnam.smb111.cours02.tp2_4.common;
+package fr.cnam.smb111.cours02.tp2_4.simpletypes.common;
 
 public class CommonParameters {
     public static final int RMI_REGISTRY_PORT_NUMBER = 1099;

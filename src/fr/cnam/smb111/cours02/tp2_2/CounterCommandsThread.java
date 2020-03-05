@@ -50,7 +50,7 @@ public class CounterCommandsThread extends Thread {
 
     private void sendServerCounterValue() {
         // Creating Packet (Marshalling)
-        if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Sending Server Counter Value to Client");
+        if (Debug.SERVER_THREAD_TRACE_ON) System.out.println("Sending Server Counter Value to client");
         DatagramPacket msg = null;
         try {
             String message = "" + Server.getCounter().getValue();

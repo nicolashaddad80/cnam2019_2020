@@ -31,7 +31,7 @@ public class CounterClient implements Runnable {
             System.err.println("Erreur sur l'hote : " + e);
             System.exit(-1);
         } catch (IOException e) {
-            System.err.println("Creation de la socket impossible Verifiez si le Serveur est lance: " + e);
+            System.err.println("Creation de la socket impossible Verifiez si le serveur est lance: " + e);
             System.exit(-1);
         }
 

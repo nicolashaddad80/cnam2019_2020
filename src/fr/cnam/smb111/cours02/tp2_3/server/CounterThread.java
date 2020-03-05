@@ -72,7 +72,7 @@ public class CounterThread extends Thread {
                 this.sendServerCounterValue();
                 break;
             case ClientParameters.END:
-                System.out.println("Client Communication end, will close all then exit");
+                System.out.println("client Communication end, will close all then exit");
                 // Fermeture des flux et des sockets
                 try {
                     this.input.close();
